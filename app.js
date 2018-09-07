@@ -27,8 +27,9 @@ app.use(express.static('node_modules/bulma/css'));
 //set view enige
 app.set("view engine", "ejs");
 
+
 //viewing the messages
-app.get('/messages', (req, res) => {
+app.get('/', (req, res) => {
     pool.query('select title, body from messages ORDER BY id desc')
         .then((response) => database = response.rows)
         .then((database) => res.render('messages', {database: database}))
@@ -46,7 +47,7 @@ app.post('/postmessage', (req, res) => {
     body = req.body.message;
     pool.query(`insert into messages (title, body) values ('${title}', '${body}')`)
         .then((response) => console.log(`${response.command}: ${response.rowCount}`))
-        .then(res.redirect('/messages'))
+        .then(res.redirect('/'))
         .catch(err => console.error('Error executing query', err.stack))
 })
 

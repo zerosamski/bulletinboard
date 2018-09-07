@@ -9,7 +9,7 @@
 	</head>
 	<body>
 
-		<section class="hero is-info editstohero">
+		<section class="hero is-dark editstohero">
 		  <div class="hero-body">
 		    <div class="container has-text-centered">
 		      <p class="title">
@@ -20,25 +20,38 @@
 		      </p>
 		    </div>
 		  </div>
+
+           <div class="hero-foot">
+          <nav class="tabs is-boxed is-fullwidth">
+            <div class="container">
+              <ul>
+                <li class="is-active">
+                  <a href="/">Message Board</a>
+                </li>
+                <li>
+                  <a href="/postmessage">Post a Message</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
           </section>
 
 <div class="container is-fluid">
   <div class="columns is-multiline">
-   
-
 <% for(var i=0; i < database.length; i++) { %>
  <div class="column is-one-quarter">
  
-   <article class="tile is-child notification is-primary  editstocolumn">
-          <p class="title"><%= database[i].title %></p>
-          <p class="subtitle"><%= database[i].body %></p>
+   <article class="tile is-child message is-dark editstocolumn">
+          <p class="message-header"><%= database[i].title %></p>
+          <p class="message-body"><%= database[i].body %></p>
         </article>
         </div>
        
+    
         
 			<% } %> 
             
-</div>
 </div>
 </div>
 
