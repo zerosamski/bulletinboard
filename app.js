@@ -1,4 +1,4 @@
-//import modules
+//importing modules and setting variables
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
@@ -9,13 +9,9 @@ const pool = new Pool({
     user: process.env.PGUSER,
     database: 'bulletinboard',
     port: '5432',
-  })
+})
 
 let database;
-
-// pool.query('select title, body from messages ORDER BY id desc')
-//         .then((response) => database = response.rows)
-//         .catch(err => console.error('Error executing query', err.stack))
 
 //use bodyparser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,7 +31,6 @@ app.get('/', (req, res) => {
         .then((database) => res.render('messages', {database: database}))
         .catch(err => console.error('Error executing query', err.stack))
 })
-
 
 //posting a message
 app.get('/postmessage', (req, res) => {

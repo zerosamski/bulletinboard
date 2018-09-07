@@ -5,59 +5,49 @@
        	<link rel="stylesheet" type="text/css" href="app.css">
         	<link rel="stylesheet" type="text/css" href="bulma.css">
         	<script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
-
 	</head>
-	<body>
-
+	
+    <body>
 		<section class="hero is-dark editstohero">
-		  <div class="hero-body">
-		    <div class="container has-text-centered">
-		      <p class="title">
-		        Sam's Message Board
-		      </p>
-		      <p class="subtitle">
-		        Post a message and view the messages of others!
-		      </p>
+		    <div class="hero-body">
+		        <div class="container has-text-centered">
+		            <p class="title">
+		                Sam's Message Board
+		            </p>
+		            <p class="subtitle">
+		                Post a message and view the messages of others!
+		            </p>
+		        </div>
 		    </div>
-		  </div>
 
            <div class="hero-foot">
-          <nav class="tabs is-boxed is-fullwidth">
-            <div class="container">
-              <ul>
-                <li class="is-active">
-                  <a href="/">Message Board</a>
-                </li>
-                <li>
-                  <a href="/postmessage">Post a Message</a>
-                </li>
-              </ul>
+                <nav class="tabs is-boxed is-fullwidth">
+                    <div class="container">
+                        <ul>
+                            <li class="is-active">
+                                <a href="/">Message Board</a>
+                            </li>
+                            <li>
+                                <a href="/postmessage">Post a Message</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-          </nav>
+        </section>
+
+        <div class="container is-fluid">
+            <div class="columns is-multiline">
+                <% for(var i=0; i < database.length; i++) { %>
+                    <div class="column is-one-quarter">
+                        <article class="tile is-child message is-dark editstocolumn">
+                            <p class="message-header"><%= database[i].title %></p>
+                            <p class="message-body"><%= database[i].body %></p>
+                        </article>
+                    </div>
+                <% } %> 
+            </div>
         </div>
-          </section>
 
-<div class="container is-fluid">
-  <div class="columns is-multiline">
-<% for(var i=0; i < database.length; i++) { %>
- <div class="column is-one-quarter">
- 
-   <article class="tile is-child message is-dark editstocolumn">
-          <p class="message-header"><%= database[i].title %></p>
-          <p class="message-body"><%= database[i].body %></p>
-        </article>
-        </div>
-       
-    
-        
-			<% } %> 
-            
-</div>
-</div>
-
-
-          <footer> 
-</footer>
-
-</body>
+    </body>
 </html>
